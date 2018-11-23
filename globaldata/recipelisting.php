@@ -1,15 +1,27 @@
 <?php
 include_once '../globalincludes/connection.php';
 
+//$var_sort = $_POST['sort'];
+//
+//switch ($var_sort) {
+//    case 'sort_nameasc':
+//        $sql_sort = ' rec_shortname asc';
+//        break;
+//    default:
+//        $sql_sort = ' rec_shortname asc';
+//        break;
+//}
+
 $result2 = $conn1->prepare("SELECT rec_shortname, rec_description, picture_url, rec_dish FROM mymenumaker.recipe
-                             JOIN mymenumaker.recipe_pictures on picture_id = rec_pictureid  ;");  //$orderby pulled from: include 'slopecat_switch_orderby.php';
+                             JOIN mymenumaker.recipe_pictures on picture_id = rec_pictureid 
+                             ;");  //$orderby pulled from: include 'slopecat_switch_orderby.php';
 $result2->execute();
 $recipelisting = $result2->fetchAll(pdo::FETCH_ASSOC);
 
 foreach ($recipelisting as $key => $value) {
     ?>
     <div class="col-md-4">
-        <div class="card">
+        <div class="card " data-category="<?php echo $recipelisting[$key]['rec_dish'] ?>">
             <div class="card-header">
                 <strong class="card-title" style="text-transform: uppercase"><?php echo $recipelisting[$key]['rec_shortname'] . ' - ' . $recipelisting[$key]['rec_dish'] ?> </strong>
             </div>
