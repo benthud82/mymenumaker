@@ -19,7 +19,7 @@
             <h3>Add New Recipe</h3>
 
 
-            <form action="">
+            <form id="form_recipe" action="">
 
                 <div class="row">
                     <div class="col-lg-6"style="padding-top: 25px;">
@@ -71,9 +71,9 @@
                         </tfoot>
                     </table>
                 </div>
-            
-            
-            
+
+
+
 
                 <div class="row">
                     <table id="rec_steps" class=" table order-list">
@@ -96,9 +96,9 @@
                         </tfoot>
                     </table>
                 </div>
-            
-            </form>
 
+            </form>
+            <input value="Submit" type="submit" onclick="submitform()">
 
         </div>
     </div>
@@ -106,7 +106,7 @@
         $(document).ready(function () {
             var counter = 0;
             var counter_steps = 0;
-
+            //add row to the ingredients on click
             $("#addrow").on("click", function () {
                 var newRow = $("<tr>");
                 var cols = "";
@@ -121,16 +121,17 @@
                 counter++;
             });
 
+            //add row to the steps on click
             $("#addsteps").on("click", function () {
                 var newRow = $("<tr>");
                 var cols = "";
 
-                cols += '<td><input type="text" class="form-control" name="step' + counter + '"/></td>';
+                cols += '<td><input type="text" class="form-control" name="step' + counter_steps + '"/></td>';
 
                 cols += '<td><input type="button" class="ibtnDel btn btn-md btn-danger "  value="Delete"></td>';
                 newRow.append(cols);
                 $("#rec_steps").append(newRow);
-                counter_steps ++;
+                counter_steps++;
             });
 
             $("table.order-list").on("click", ".ibtnDel", function (event) {
@@ -154,7 +155,19 @@
             }
         }
 
+        function submitform() {
+            debugger;
+            var formData = JSON.stringify($("#form_recipe").serializeArray());
+            $.ajax({
+                type: "POST",
+                url: "postdata/post_addrecipe.php",
+                data: formData,
+                success: function () {},
+                dataType: "json",
+                contentType: "application/json"
+            });
 
+        }
 
     </script>
 </body>
