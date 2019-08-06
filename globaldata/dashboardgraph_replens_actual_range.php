@@ -2,7 +2,7 @@
 
 include_once 'globalincludes/connection.php';
 $startdate = '2019-04-01';
-$enddate = '2019-06-31';
+$enddate = '2019-08-31';
 
 
 $result1 = $conn1->prepare("SELECT 

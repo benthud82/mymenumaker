@@ -38,7 +38,7 @@ $array_acc = $sql_acc->fetchAll(pdo::FETCH_ASSOC);
                     <th scope="col">Forecast Low</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="">
 
                 <?php
                 foreach ($array_acc as $key => $value) {
@@ -50,7 +50,7 @@ $array_acc = $sql_acc->fetchAll(pdo::FETCH_ASSOC);
                         $MAPE = ' ';
                     }
 
-                    echo '<tr>';
+                    echo '<tr class="hovercoloer">';
                     echo '<th scope="row">' . $array_acc[$key]['ci_date'] . '</th>';
                     echo '<td>' . $actlines . '</td>';
                     echo '<td>' . $array_acc[$key]['ci_mean'] . '</td>';
