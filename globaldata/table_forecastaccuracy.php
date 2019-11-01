@@ -1,5 +1,5 @@
 <?php
-$startdate = date('Y-m-d', strtotime('-25 days'));
+$startdate = date('Y-m-d', strtotime('-200 days'));
 include_once '../globalincludes/connection.php';
 $sql_acc = $conn1->prepare("SELECT 
                                 ci_date,

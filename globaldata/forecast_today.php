@@ -1,7 +1,8 @@
 <?php
 
 include_once 'globalincludes/connection.php';
-$today = date('Y-m-d');
+//$today = date('Y-m-d');
+$today = date('2019-06-03');
 
 
 $result1 = $conn1->prepare("SELECT 

@@ -10,6 +10,10 @@
     include 'globaldata/dashboardgraph_replens_actual_range.php';  //returns json with range and date data for highchart
     include 'globaldata/forecast_today.php';  //returns json with range and date data for highchart
     ?>
+    <script src="assets/js/highcharts.js" type="text/javascript"></script>
+    <script src="assets/js/highcharts-exporting.js" type="text/javascript"></script>
+    
+    <script src="assets/js/highcharts-more.js" type="text/javascript"></script>
 </head>
 
 <body>
